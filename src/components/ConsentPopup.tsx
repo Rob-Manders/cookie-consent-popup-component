@@ -13,32 +13,44 @@ const ConsentPopupContainer = styled.div`
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.5);
   min-height: 3rem;
   padding: 10px;
+`
 
-  .introBlock {
+const IntroBlock = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+
+  .cookieIcon {
+    width: 40px;
+    aspect-ratio: 1 / 1;
+  }
+
+  p {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    align-items: flex-end;
+    margin: 0;
 
-    .cookieIcon {
-      width: 40px;
-      aspect-ratio: 1 / 1;
-    }
-
-    p {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      margin: 0;
-
-      a {
-        margin-top: 0.25rem;
-      }
+    a {
+      margin-top: 0.25rem;
     }
   }
 `
 
+const ButtonContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  button {
+    margin-top: 0.5rem;
+  }
+`
+
 export default function ConsentPopup() {
+  const [open, setOpen] = useState(true)
+  const [expanded, setExpanded] = useState(false)
   const [selection, setSelection] = useState('none')
-  const [option, setOption] = useState({
+  const [options, setOptions] = useState({
     functional: true,
     analytics: true,
     advertisement: true
@@ -46,12 +58,18 @@ export default function ConsentPopup() {
 
   return (
     <ConsentPopupContainer>
-      <div className='introBlock'>
+      <IntroBlock>
         <img className='cookieIcon' src={cookieIcon} alt='' />
         <p>
           This website uses cookies. <a href='#'>Find out more</a>
         </p>
-      </div>
+      </IntroBlock>
+
+      <ButtonContainer>
+        <button>Necessary Cookies</button>
+        <button>All Cookies</button>
+        <button>Custom</button>
+      </ButtonContainer>
     </ConsentPopupContainer>
   )
 }
