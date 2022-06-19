@@ -1,0 +1,44 @@
+@use './vendor';
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  $bg-light: #12111c;
+  $bg-dark: #151520;
+
+  background: rgb(118, 0, 130);
+  background: linear-gradient(
+    -45deg,
+    $bg-dark 25%,
+    $bg-light 25%,
+    $bg-light 50%,
+    $bg-dark 50%,
+    $bg-dark 75%,
+    $bg-light 75%
+  );
+
+  background-size: 75px 75px;
+  font-family: 'IBM Plex Sans', sans-serif;
+  color: rgb(231, 231, 231);
+  text-align: center;
+}
+
+code {
+  font-family: 'IBM Plex Mono', monospace;
+  color: #f3aa23;
+}
+
+img {
+  border-radius: 1rem;
+  margin-top: 2rem;
+}
