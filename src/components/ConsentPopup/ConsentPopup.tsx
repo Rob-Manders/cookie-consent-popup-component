@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import cookieIcon from '../assets/icons/cookie-bite-solid.svg'
+import cookieIcon from '../../assets/icons/cookie-bite-solid.svg'
+import Button from './Button'
 
 const ConsentPopupContainer = styled.div`
   position: absolute;
@@ -66,9 +67,11 @@ export default function ConsentPopup() {
       </IntroBlock>
 
       <ButtonContainer>
-        <button>Necessary Cookies</button>
-        <button>All Cookies</button>
-        <button>Custom</button>
+        <Button buttonType='custom' selected>
+          Custom
+        </Button>
+        <Button buttonType='essential'>Essential Cookies</Button>
+        <Button buttonType='all'>All Cookies</Button>
       </ButtonContainer>
     </ConsentPopupContainer>
   )

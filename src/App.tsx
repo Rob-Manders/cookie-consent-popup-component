@@ -1,5 +1,5 @@
 import React from 'react'
-import ConsentPopup from './components/ConsentPopup'
+import ConsentPopup from './components/ConsentPopup/ConsentPopup'
 
 export default function App() {
   return (
